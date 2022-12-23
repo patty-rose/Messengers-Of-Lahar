@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc, query, orderBy } from "firebase/firestore";
-import db from './firebase.js'
+import { db, auth } from './firebase.js'
 import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
+import SignIn from './pages/SignIn.js';
 
 function App(){
 
@@ -35,6 +36,7 @@ function App(){
   return (
     <>
       mainPageList:{mainPageList}
+      <SignIn />
     </>
     // <Router>
     //   <Routes>

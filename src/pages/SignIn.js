@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import { auth } from "../firebase.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -23,7 +22,6 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [signinErrorMessage, setSigninErrorMessage] = useState('');
-  const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
@@ -33,7 +31,7 @@ const SignIn = () => {
     setSigninErrorMessage('');
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/conflictList')
+      console.log("signed-in success", auth);
     } catch (e) {
       setSigninErrorMessage(`There was an error signing in: ${e.message}`);
     }
@@ -106,7 +104,7 @@ const SignIn = () => {
             {signinErrorMessage}
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link to='/signUp' className='underline'> Don't have an account? Sign up</Link>
+                {/* <Link to='/signUp' className='underline'> Don't have an account? Sign up</Link> */}
               </Grid>
             </Grid>
           </Box>
