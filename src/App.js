@@ -57,9 +57,12 @@ function App(){
 
   //protected route comp:
   const ProtectedRoute = ({ children }) => {
+    console.log(currentUser);
     if (!currentUser) {
+      console.log('not authenticated')
       return <Navigate to='/' />;
     }
+    console.log('authenticated')
     return children;
   };
 
@@ -85,7 +88,7 @@ function App(){
           <Route path='/' element={<Home />} />
           <Route path='/:pageId' element={<MolPage />}/>
 
-          <Route path='/admin' element={<SharedLayout />}>
+          <Route path='/admin' element={<SharedLayout user={currentUser}/>}>
             <Route index element = {<SignIn />} />
             <Route path='dashboard' element={<ProtectedRoute><Dashboard pageList = {mainPageList} /></ProtectedRoute>} />
 

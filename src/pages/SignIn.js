@@ -16,12 +16,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [signinErrorMessage, setSigninErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
@@ -32,6 +34,7 @@ const SignIn = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("signed-in success", auth);
+      navigate('/admin/dashboard');
     } catch (e) {
       setSigninErrorMessage(`There was an error signing in: ${e.message}`);
     }
