@@ -33,7 +33,6 @@ const SignIn = () => {
     setSigninErrorMessage('');
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("signed-in success", auth);
       navigate('/admin/dashboard');
     } catch (e) {
       setSigninErrorMessage(`There was an error signing in: ${e.message}`);

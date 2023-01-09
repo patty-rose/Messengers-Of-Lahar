@@ -64,7 +64,6 @@ export const Navbar = (props) => {
   useEffect(() => {
     const authenticatedAccountButton = ["Log Out", handleLogout];
     const anonAccountButton = ["Log In", handleLogin];
-    console.log(currentUser);
     setAccountButton(
       currentUser ? authenticatedAccountButton : anonAccountButton
     );

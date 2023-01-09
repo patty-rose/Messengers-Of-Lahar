@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Button, Typography } from "@mui/material";
+import { Link, useParams } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 const MolPage = (props) => {
   const { listOfPages, onGetRandomPageId } = props;
   const { pageId } = useParams();
-  const navigate = useNavigate();
 
   const thisPage = listOfPages.find((page) => page.id === pageId);
 

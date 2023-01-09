@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import EditIcon from "@mui/icons-material/Edit";
 import PreviewIcon from "@mui/icons-material/Preview";
 import { Box } from "@mui/system";
@@ -14,11 +12,6 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 export function PageCard(props) {
   const { pageText, backgroundImage, id, handleClickingDelete } =
     props;
-  const navigate = useNavigate();
-
-  const handleCardClick = (thisId) => {
-    navigate(`/${thisId}`);
-  };
 
   return (
     <React.Fragment>

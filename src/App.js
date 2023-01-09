@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc, query, orderBy, serverTimestamp } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { db, auth } from './firebase.js'
+import { db } from './firebase.js'
 import SignIn from './pages/SignIn.js';
 import Home from './pages/Home.js';
 import MolPage from './pages/MolPage.js';
@@ -18,8 +18,6 @@ function App(){
   //useState hooks:
   const [mainPageList, setMainPageList] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [error, setError] = useState(null);
-  console.log(mainPageList);
 
   //Auth object & observer:
   const auth = getAuth();
@@ -49,7 +47,6 @@ function App(){
           });
         });
         setMainPageList(pages);
-        console.log(mainPageList);
       },
       (error) => {
         //add more
@@ -60,7 +57,6 @@ function App(){
 
   //protected route comp:
   const ProtectedRoute = ({ children }) => {
-    console.log(currentUser);
     if (!currentUser) {
       console.log('not authenticated')
       return <Navigate to='/' />;
