@@ -10,7 +10,7 @@ const Home = () => {
         Live your desires and reverse the shame thrust on you by those fearful
         of exploration
       </p>
-      <Link to="/" style={{ textDecoration: "none", color: "#4F5361" }}>
+      <Link to="/admin" style={{ textDecoration: "none", color: "#4F5361" }}>
         <Typography variant="body2" sx={{ fontWeight: "bold" }}>
           link left
         </Typography>

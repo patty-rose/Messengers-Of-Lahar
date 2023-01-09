@@ -89,7 +89,7 @@ function App(){
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/:pageId' element={<MolPage />}/>
+          <Route path='/:pageId' element={<MolPage listOfPages = {mainPageList}/>}/>
 
           <Route path='/admin' element={<SharedLayout user={currentUser}/>}>
             <Route index element = {<SignIn />} />
