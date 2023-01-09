@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div class="container main">
+    <div className="container main">
       <h1>Messengers of Lahar</h1>
       <p>
         Live your desires and reverse the shame thrust on you by those fearful

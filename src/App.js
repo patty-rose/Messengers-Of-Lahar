@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc, query, orderBy } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc, query, orderBy, serverTimestamp } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from './firebase.js'
 import SignIn from './pages/SignIn.js';
@@ -19,6 +19,7 @@ function App(){
   const [mainPageList, setMainPageList] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(null);
+  console.log(mainPageList);
 
   //Auth object & observer:
   const auth = getAuth();
@@ -43,10 +44,12 @@ function App(){
           pages.push({
             pageText: doc.data().pageText,
             backgroundImage: doc.data().backgroundImage,
+            timestamp: serverTimestamp(),
             id: doc.id,
           });
         });
         setMainPageList(pages);
+        console.log(mainPageList);
       },
       (error) => {
         //add more
@@ -68,7 +71,7 @@ function App(){
 
   //CRUD handlers:
   const handleAddingNewPageToList = async (newPageData) => {
-    const docRef = await addDoc(collection(db, "page"), newPageData);
+    const docRef = await addDoc(collection(db, "pages"), newPageData);
     return docRef;
   }
 
@@ -77,7 +80,7 @@ function App(){
     await updateDoc(pageRef, pageToEdit);
   }
 
-  const handleDeletingPage = async (id) => {
+  const handleClickingDelete = async (id) => {
     await deleteDoc(doc(db, "pages", id));
   } 
   
@@ -90,7 +93,7 @@ function App(){
 
           <Route path='/admin' element={<SharedLayout user={currentUser}/>}>
             <Route index element = {<SignIn />} />
-            <Route path='dashboard' element={<ProtectedRoute><Dashboard pageList = {mainPageList} /></ProtectedRoute>} />
+            <Route path='dashboard' element={<ProtectedRoute><Dashboard listOfPages = {mainPageList} onClickingDelete={handleClickingDelete} /></ProtectedRoute>} />
 
             <Route path='addPage' element={<ProtectedRoute><AddPage onNewPageCreation={handleAddingNewPageToList}/></ProtectedRoute>}>
             </Route>
