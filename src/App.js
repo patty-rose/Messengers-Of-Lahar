@@ -83,13 +83,20 @@ function App(){
   const handleClickingDelete = async (id) => {
     await deleteDoc(doc(db, "pages", id));
   } 
+
+  const handleGetRandomPageId = (pagesArr) => {
+    const max = pagesArr.length;
+    const arrIndex = Math.floor(Math.random() * max);
+    const randomPageId = pagesArr[arrIndex].id
+    return randomPageId;
+  }
   
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/:pageId' element={<MolPage listOfPages = {mainPageList}/>}/>
+          <Route path='/:pageId' element={<MolPage listOfPages = {mainPageList} onGetRandomPageId = {handleGetRandomPageId} />}/>
 
           <Route path='/admin' element={<SharedLayout user={currentUser}/>}>
             <Route index element = {<SignIn />} />
