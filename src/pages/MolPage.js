@@ -10,25 +10,20 @@ const MolPage = (props) => {
 
   const thisPage = listOfPages.find((page) => page.id === pageId);
 
-  console.log(onGetRandomPageId(listOfPages));
-
-  const idClick = (pageArr) => {
-    console.log(onGetRandomPageId(pageArr))
-  }
+  const randomPageId = onGetRandomPageId(listOfPages);
 
   return (
     <div className="container main">
       <p>{thisPage.pageText}</p>
       <p>{thisPage.backgroundImage}</p>
-      <Button onClick={()=>{idClick(listOfPages)}}> CLICK FOR ID </Button>
 
-      <Link to="/admin/dashboard" style={{ textDecoration: "none", color: "#4F5361" }}>
+      <Link to={`/${randomPageId}`} style={{ textDecoration: "none", color: "#4F5361" }}>
         <Typography variant="body2" sx={{ fontWeight: "bold" }}>
           link left
         </Typography>
       </Link>
 
-      <Link to="/" style={{ textDecoration: "none", color: "#4F5361" }}>
+      <Link to={`/${randomPageId}`} style={{ textDecoration: "none", color: "#4F5361" }}>
         <Typography variant="body2" sx={{ fontWeight: "bold" }}>
           link right
         </Typography>
