@@ -61,7 +61,6 @@ function App(){
       console.log('not authenticated')
       return <Navigate to='/' />;
     }
-    console.log('authenticated')
     return children;
   };
 
@@ -104,7 +103,7 @@ function App(){
             <Route path='addPage' element={<ProtectedRoute><AddPage onNewPageCreation={handleAddingNewPageToList}/></ProtectedRoute>}>
             </Route>
 
-            <Route path = 'edit/:pageId' element = {<ProtectedRoute><EditPage pageList = {mainPageList} onEditPage={handleEditingPageInList}/></ProtectedRoute>} />
+            <Route path = 'edit/:pageId' element = {<ProtectedRoute><EditPage listOfPages = {mainPageList} onEditPage={handleEditingPageInList}/></ProtectedRoute>} />
 
             <Route path = 'preview/:pageId' element = {<ProtectedRoute><PreviewPage pageList = {mainPageList} /></ProtectedRoute>} />
           </Route>
@@ -113,26 +112,6 @@ function App(){
         </Routes>
     </BrowserRouter>
     </>
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<MolTitlePage />} />
-    //     <Route path="/MolPages/:thisPageNumber" element={<MolPages mainPageList = {mainPageList}/>} />
-
-    //     <Route 
-    //       path="/admin" 
-    //       element={<PageControl />} >
-
-    //       <Route index element={<PageList mainPageList = {mainPageList} setMainPageList = {setMainPageList} selectedPage = {selectedPage} setSelectedPage = {setSelectedPage} />} />
-    //       <Route path='AddPage' element={<AddPage />} />
-    //       <Route path='details/:thisPageId' element={<PageDetail mainPageList = {mainPageList} />}/>
-    //       <Route path='editPage/:thisPageId' element={<EditPage mainPageList = {mainPageList} />}/>
-
-    //     </Route>
-
-    //     <Route path='*' element={<Error />} />
-        
-    //   </Routes>
-    // </Router>
   );
 }
 
