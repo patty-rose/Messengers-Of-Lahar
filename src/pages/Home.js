@@ -14,9 +14,9 @@ const Home = (props) => {
   const randomPageId = onGetRandomPageId(listOfPages);
 
   const handleNavigationClick = () => {
-    navigate(`/${randomPageId}`)
+    navigate(`/${randomPageId}`);
     console.log("trying to navigate", randomPageId);
-  }
+  };
 
   const molPageStyle = {
     backgroundImage: `url('${homeBackground}')`,
@@ -26,13 +26,18 @@ const Home = (props) => {
   };
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', ...molPageStyle }} >
-      <Stack direction='column' justifyContent='center'>
-        <Typography variant="h1" color= "primary" >
+    <Box sx={{ display: "flex", alignItems: "center",         justifyContent: "center",  ...molPageStyle }}>
+      <Stack
+        direction="column"
+        spacing={8}
+        alignItems="center"
+      >
+        <Typography variant="h1" color="primary">
           Messengers of Lahar
         </Typography>
-        <Typography variant="h4" color= "primary">
-          Live your desires and reverse the shame thrust on you by those fearful of exploration 
+        <Typography variant="h4" color="primary">
+          Live your desires and reverse the shame thrust on you by those fearful
+          of exploration
         </Typography>
       </Stack>
 
@@ -42,11 +47,13 @@ const Home = (props) => {
           height: "30%",
           position: "fixed",
           bottom: 0,
-          left: "15%"
+          left: "15%",
         }}
         alt="a black and white hand, palm facing viewer, holding up thumb, index, and middle finger, with pinky and ring tucked and pressing on palm."
         src={hand}
-        onClick= {()=>{handleNavigationClick()}}
+        onClick={() => {
+          handleNavigationClick();
+        }}
       />
 
       <Box
@@ -55,11 +62,13 @@ const Home = (props) => {
           height: "30%",
           position: "fixed",
           bottom: 0,
-          right: "15%"
+          right: "15%",
         }}
         alt="a black and white lit candle"
         src={candle}
-        onClick= {()=>{handleNavigationClick()}}
+        onClick={() => {
+          handleNavigationClick();
+        }}
       />
     </Box>
   );
