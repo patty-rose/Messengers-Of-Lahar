@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/system";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import Button from "@mui/material/Button";
 import { Drawer, List, ListItem, styled } from "@mui/material";
 
@@ -162,7 +161,6 @@ export const Navbar = (props) => {
                 onClick={handleMenuLogoClick}
                 color="primary"
               >
-                <QuestionAnswerIcon color="primary" />
                 <Typography
                   color="primary"
                   variant="h4"
@@ -184,7 +182,6 @@ export const Navbar = (props) => {
               aria-label="Home"
               onClick={handleMenuLogoClick}
             >
-              <QuestionAnswerIcon color="primary" />
               <Typography
                 color="primary"
                 variant="h6"

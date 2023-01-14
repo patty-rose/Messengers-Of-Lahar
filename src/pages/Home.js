@@ -1,11 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import homeBackground from "../img/homeBackground.jpg";
 import candle from "../img/candle.png";
 import hand from "../img/hand.png";
-import { red } from "@mui/material/colors";
 
 const Home = (props) => {
   const { listOfPages, onGetRandomPageId } = props;
