@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { red } from "@mui/material/colors";
 import candle from "../img/candle.png";
 import hand from "../img/hand.png";
@@ -28,9 +28,16 @@ const MolPage = (props) => {
   };
 
   return (
-    <div className="container" style={molPageStyle}>
-      <p>{thisPage.pageText}</p>
-      <p>{thisPage.backgroundImage}</p>
+    <Box sx={{ display: "flex", alignItems: "center",         justifyContent: "center",  ...molPageStyle }}>
+      <Stack
+        direction="column"
+        spacing={8}
+        alignItems="center"
+      >
+        <Typography variant="h4" color="primary">
+          {thisPage.pageText}
+        </Typography>
+      </Stack>
 
       <Box
         component="img"
@@ -57,7 +64,7 @@ const MolPage = (props) => {
         src={candle}
         onClick= {()=>{handleNavigationClick()}}
       />
-    </div>
+    </Box>
   );
 };
 

@@ -5,16 +5,12 @@ const theme = createTheme({
   palette: {
     primary: {
       light: red[50],
-      main: red[500],
+      main: red[600],
       dark: red[900],
     }
   },
   typography: {
     "fontFamily": `"Times New Roman", Times, serif`,
-    "fontSize": 14,
-    "fontWeightLight": 300,
-    "fontWeightRegular": 400,
-    "fontWeightMedium": 500,
     "h1":{
       "fontFamily": `"Times New Roman", Times, serif`,
       "fontWeight": 600,
